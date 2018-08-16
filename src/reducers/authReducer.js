@@ -1,12 +1,9 @@
 import {
-  // INITIATE_AUTH0,
   ON_LOGIN_EMAIL_CHANGE,
   ON_LOGIN_PW_CHANGE,
   AUTH0_LOGIN_SUCCESS
 } from "../actions/types";
-// import Auth from "../utils/Auth";
 
-// const auth = new Auth();
 const INITIAL_STATE = {
   login_email: "",
   login_pw: "",
@@ -15,8 +12,6 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, actions) => {
   switch (actions.type) {
-    // case INITIATE_AUTH0:
-    //   return { auth };
     case ON_LOGIN_EMAIL_CHANGE:
       return { ...state, login_email: actions.payload };
     case ON_LOGIN_PW_CHANGE:

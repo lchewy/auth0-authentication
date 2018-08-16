@@ -1,9 +1,6 @@
 import auth0 from "auth0-js";
 import jwtDecode from "jwt-decode";
 
-// const LOGIN_SUCCESS = "/secret";
-// const LOGIN_FAILURE = "/";
-
 export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: "srlc.auth0.com",
@@ -26,8 +23,6 @@ export default class Auth {
         scope: "openid profile email"
       },
       (err, authResults) => {
-        // console.log("authResult ", authResults);
-        // console.log("error ", err)
         if (err) {
           // l.chiu@sportradar.com
           // Sp0rtradar1
@@ -40,6 +35,7 @@ export default class Auth {
     );
   };
 
+  // NO NEED FOR SIGNUP
   signup = async (email, password, push) => {
     await this.auth0.signup(
       {
@@ -58,8 +54,6 @@ export default class Auth {
   };
 
   handleAuthentication = (authResults, push) => {
-    // this.auth0.parseHash((err, authResults) => {
-    // console.log("handleauth ", authResults);
     if (authResults && authResults.accessToken && authResults.idToken) {
       let expiresAt = JSON.stringify(
         authResults.expiresIn * 1000 + new Date().getTime()
@@ -68,15 +62,8 @@ export default class Auth {
       localStorage.setItem("access_token", authResults.accessToken);
       localStorage.setItem("id_token", authResults.idToken);
       localStorage.setItem("expires_at", expiresAt);
-      // location.hash = "";
-      // location.pathname = LOGIN_SUCCESS;
       push("/");
     }
-    // else if (err) {
-    //   location.pathname = LOGIN_FAILURE;
-    //   console.log(err);
-    // }
-    // });
   };
 
   isAuthenticated = () => {
@@ -88,7 +75,6 @@ export default class Auth {
     localStorage.removeItem("access_token");
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
-    // location.pathname = LOGIN_FAILURE;
     push("/");
   };
 

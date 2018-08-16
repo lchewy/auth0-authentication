@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { reduxForm, Field } from "redux-form";
 import * as actions from "../actions";
+import reducers from "../reducers";
 
-class Signup extends Component {
+class SignupForm extends Component {
   render() {
-    console.log("signup props ", this.props);
     return <div>Leslie</div>;
   }
 }
 
+// export default connect(
+//   null,
+//   actions
+// )(reduxForm({form:""})(Signup));
+
 export default connect(
   null,
   actions
-)(Signup);
+)(reduxForm({ form: "signupForm" })(SignupForm));
