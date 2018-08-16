@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import reducers from "./reducers";
 import App from "./components/App";
 
-import Auth from "./utils/Auth";
+// import Auth from "./utils/Auth";
 
 // const auth = new Auth();
 

@@ -1,7 +1,7 @@
 /* eslint no-restricted-globals: 0 */
 import auth0 from "auth0-js";
 import jwtDecode from "jwt-decode";
-import Auth0Lock from "auth0-lock";
+// import Auth0Lock from "auth0-lock";
 
 const LOGIN_SUCCESS = "/secret";
 const LOGIN_FAILURE = "/";
@@ -16,9 +16,19 @@ export default class Auth {
     // scope: "openid profile"
   });
 
-  lock = new Auth0Lock("dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F","srlc.auth0.com", )
+  url = this.auth0.client.buildAuthorizeUrl({
+    clientID: 'dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F', // string
+    responseType: 'token', // code or token
+    redirectUri: 'https://localhost:3000/callback',
+    // connection: "https://localhost:3000/test"
+  })
+
+  // lock = new Auth0Lock("dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F","srlc.auth0.com", )
 
   login = () => {
+
+    console.log(this.url)
+    location.href = this.url
     // this.auth0.authorize();
 
 
@@ -30,9 +40,9 @@ export default class Auth {
     //   nonce: "YOUR_NONCE"
     // });
 
-    this.lock.show()
+    // this.lock.show()
 
-    console.log("suuup")
+    // console.log("suuup")
   };
 
   handleAuthentication = () => {
