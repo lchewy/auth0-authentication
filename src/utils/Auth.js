@@ -9,7 +9,7 @@ const LOGIN_FAILURE = "/";
 export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: "srlc.auth0.com",
-    clientID: "dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F",
+    clientID: "dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F"
     // redirectUri: "http://localhost:3000/callback",
     // audience: "https://srlc.auth0.com/userinfo",
     // responseType: "token id_token",
@@ -17,20 +17,32 @@ export default class Auth {
   });
 
   url = this.auth0.client.buildAuthorizeUrl({
-    clientID: 'dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F', // string
-    responseType: 'token', // code or token
-    redirectUri: 'https://localhost:3000/callback',
+    clientID: "dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F", // string
+    responseType: "token", // code or token
+    redirectUri: "https://localhost:3000/callback"
     // connection: "https://localhost:3000/test"
-  })
+  });
 
   // lock = new Auth0Lock("dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F","srlc.auth0.com", )
 
-  login = () => {
-
-    console.log(this.url)
-    location.href = this.url
+  login = async () => {
+    // console.log(this.url)
+    // location.href = this.url
     // this.auth0.authorize();
 
+    await this.auth0.client.login(
+      {
+        realm: "Username-Password-Authentication",
+        username: "l.chiu@sportradar.com",
+        password: "Sp0rtradar1",
+        responseType: "code",
+        scope: "openid"
+      },
+      (err, authResult) => {
+        console.log("why not ", authResult);
+        console.log("error ", err)
+      }
+    );
 
     // this.auth0.client.buildAuthorizeUrl({
     //   clientID: "dc8Mvbk6uA9qb1i9sxvzeEJYEKVWdw0F", // string
