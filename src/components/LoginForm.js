@@ -1,8 +1,20 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import styled from 'styled-components';
+import { Box, Flex } from 'grid-styled';
 import Auth from "../utils/Auth";
-import * as actions from "../actions";
 import "./LoginForm.css";
+
+
+const LoginFormContainer = styled( ({flex, table, marginLeft, float, ...props}) => <Box {...props} ></Box>)`
+  width: 26%;
+  height: 45.7%;
+  border-radius: 8px;
+  background-color: #e7e7e9;
+  top: 28%;
+  left: 4.9%;
+  position: absolute;
+  // margin-left:${({marginLeft}) => marginLeft ? '100px' : '0'};
+`
 
 class LoginForm extends Component {
   state = {
@@ -27,7 +39,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="loginFormContainer">
+      <LoginFormContainer marginLeft>
         <div className="innerFormContainer">
           <form onSubmit={e => this.handleSubmit(e)} className="form_style">
             <label>Email</label>
@@ -49,14 +61,10 @@ class LoginForm extends Component {
             </button>
           </form>
         </div>
-      </div>
+      </LoginFormContainer>
     );
   }
 }
 
-const mstp = ({ auth: { email, password } }) => ({ email, password });
+export default LoginForm
 
-export default connect(
-  mstp,
-  actions
-)(LoginForm);

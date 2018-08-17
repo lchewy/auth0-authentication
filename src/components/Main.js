@@ -11,7 +11,7 @@ class Main extends Component {
     return (
       <div className="signin_form">
         <div className="logo_container">
-          <img src={Logo} className="logo" />
+          <img src={Logo} className="logo" alt="logo"/>
         </div>
         <LoginForm push={push} />
       </div>
@@ -20,25 +20,3 @@ class Main extends Component {
 }
 
 export default Main;
-
-// import React, { Component } from "react";
-// import Welcome from "./Welcome";
-// import Secret from "./Secret";
-// import Auth from "../utils/Auth";
-
-// class Main extends Component {
-// renderScreen = () => {
-//   const auth = new Auth();
-//   return auth.isAuthenticated() ? <Secret /> : <Welcome />;
-// };
-
-//   render() {
-//     return (
-//       <div>
-//         Welcome screen <p>please log in to see secret</p>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Main;
