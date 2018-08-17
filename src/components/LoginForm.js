@@ -55,6 +55,7 @@ class LoginForm extends Component {
               placeholder="Password"
               value={this.state.password}
               onChange={e => this.handlePWChange(e)}
+              type="password"
             />
             <button type="submit" className="signInBtn">
               Sign In

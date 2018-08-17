@@ -5,39 +5,44 @@
   background-color: #e7e7e9;
   top: 28%;
   left: 4.9%;
-  position: absolute
+  position: absolute;
 }
 
-.innerFormContainer{
-    margin-top: 72px;
-    margin-left: 25px;
+.innerFormContainer {
+  margin-top: 72px;
+  margin-left: 25px;
 }
 
-.signInBtn{
-    border: none;
-    background-color: #C30026;
-    width: 83px;
-    height: 35px;
-    border-radius: 4px;
-    color: #fbeff1;
-    margin-top: 38px;
+.signInBtn {
+  border: none;
+  background-color: #c30026;
+  width: 83px;
+  height: 35px;
+  border-radius: 4px;
+  color: #fbeff1;
+  margin-top: 38px;
 }
 
-.textInput{
-    border: none;
-    width: 80%;
-    border-bottom: 1px solid #C30026;
-    background-color: #e7e7e9;
+.textInput {
+  border: none;
+  width: 80%;
+  border-bottom: 1px solid #c30026;
+  background-color: #e7e7e9;
+  color: #c30026;
 }
 
-.textInput:focus{
-    outline: none
+.textInput:focus {
+  outline: none;
 }
-.textInput::placeholder{
-    color: #C30026
+.textInput::placeholder {
+  color: #c30026;
 }
 
-.emailInput{
-    margin-top: 14px;
-    margin-bottom: 10px;
+.emailInput {
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+.emailInput::placeholder {
+    color: #e0bcc6;
 }
