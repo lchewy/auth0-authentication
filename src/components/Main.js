@@ -4,13 +4,17 @@ import Secret from "./Secret";
 import Auth from "../utils/Auth";
 
 class Main extends Component {
-  renderScreen = () => {
-    const auth = new Auth();
-    return auth.isAuthenticated() ? <Secret /> : <Welcome />;
-  };
+  // renderScreen = () => {
+  //   const auth = new Auth();
+  //   return auth.isAuthenticated() ? <Secret /> : <Welcome />;
+  // };
 
   render() {
-    return <div>{this.renderScreen()}</div>;
+    return (
+      <div>
+        Welcome screen <p>please log in to see secret</p>
+      </div>
+    );
   }
 }
 

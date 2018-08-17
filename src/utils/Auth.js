@@ -62,7 +62,7 @@ export default class Auth {
       localStorage.setItem("access_token", authResults.accessToken);
       localStorage.setItem("id_token", authResults.idToken);
       localStorage.setItem("expires_at", expiresAt);
-      push("/");
+      push("/secret");
     }
   };
 

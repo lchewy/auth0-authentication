@@ -14,7 +14,6 @@ export const onLoginPwChange = value => {
 };
 
 export const auth0Login = (username, password, push) => dispatch => {
-  console.log("here")
   const auth = new Auth();
   auth.login(username, password, push);
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import requiredAuth from "../HOC/requiredAuth";
 
 class Secret extends Component {
   render() {
@@ -10,4 +11,4 @@ class Secret extends Component {
   }
 }
 
-export default Secret;
+export default requiredAuth(Secret);
