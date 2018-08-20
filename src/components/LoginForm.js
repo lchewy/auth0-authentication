@@ -1,20 +1,7 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
-import { Box, Flex } from 'grid-styled';
+import styled from "styled-components";
+import { Box, Flex } from "grid-styled";
 import Auth from "../utils/Auth";
-import "./LoginForm.css";
-
-
-const LoginFormContainer = styled( ({flex, table, marginLeft, float, ...props}) => <Box {...props} ></Box>)`
-  width: 26%;
-  height: 45.7%;
-  border-radius: 8px;
-  background-color: #e7e7e9;
-  top: 28%;
-  left: 4.9%;
-  position: absolute;
-  // margin-left:${({marginLeft}) => marginLeft ? '100px' : '0'};
-`
 
 class LoginForm extends Component {
   state = {
@@ -40,32 +27,75 @@ class LoginForm extends Component {
   render() {
     return (
       <LoginFormContainer marginLeft>
-        <div className="innerFormContainer">
-          <form onSubmit={e => this.handleSubmit(e)} className="form_style">
+        <InnerFormContainer>
+          <FormStyle onSubmit={e => this.handleSubmit(e)}>
             <label>Email</label>
-            <input
-              className="textInput emailInput"
+            <TextInput
               placeholder="Email"
               value={this.state.email}
               onChange={e => this.handleEmailChange(e)}
             />
             <label>Password</label>
-            <input
-              className="textInput"
+            <TextInput
               placeholder="Password"
               value={this.state.password}
               onChange={e => this.handlePWChange(e)}
               type="password"
             />
-            <button type="submit" className="signInBtn">
-              Sign In
-            </button>
-          </form>
-        </div>
+            <SigninBtn type="submit">Sign In</SigninBtn>
+          </FormStyle>
+        </InnerFormContainer>
       </LoginFormContainer>
     );
   }
 }
 
-export default LoginForm
+const LoginFormContainer = styled(
+  ({ flex, table, marginLeft, float, ...props }) => <Box {...props} />
+)`
+  width: 26%;
+  height: 45.7%;
+  border-radius: 8px;
+  background-color: #e7e7e9;
+  top: 28%;
+  left: 4.9%;
+  position: absolute;
+ 
+  // margin-left:${({ marginLeft }) => (marginLeft ? "100px" : "0")};
+`;
 
+const InnerFormContainer = styled.div`
+  margin-top: 72px;
+  margin-left: 25px;
+`;
+
+const TextInput = styled.input`
+  border: none;
+  width: 80%;
+  border-bottom: 1px solid #c30026;
+  background-color: #e7e7e9;
+  color: #c30026;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: #e0bcc6;
+  }
+`;
+
+const FormStyle = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SigninBtn = styled.button`
+  border: none;
+  background-color: #c30026;
+  width: 83px;
+  height: 35px;
+  border-radius: 4px;
+  color: #fbeff1;
+  margin-top: 38px;
+`;
+
+export default LoginForm;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import requiredAuth from "../HOC/requiredAuth";
+import requiredAuth from "../utils/requiredAuth";
 import Auth from "../utils/Auth";
 const auth = new Auth();
 
