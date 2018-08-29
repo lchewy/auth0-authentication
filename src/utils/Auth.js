@@ -13,7 +13,7 @@ export default class Auth {
     redirectUri: "https://localhost:3000/callback"
   });
 
-  login = async (username, password, push) => {
+  login = async (username, password, push, failed, success) => {
     await this.auth0.client.login(
       {
         realm: "Username-Password-Authentication",
@@ -26,8 +26,10 @@ export default class Auth {
         if (err) {
           // l.chiu@sportradar.com
           // Sp0rtradar1
+          failed()
           return err;
         } else {
+          success()
           this.handleAuthentication(authResults, push);
           return authResults;
         }

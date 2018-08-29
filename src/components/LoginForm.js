@@ -6,7 +6,8 @@ import Auth from "../utils/Auth";
 class LoginForm extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    error: false
   };
 
   handleEmailChange = e => {
@@ -21,8 +22,12 @@ class LoginForm extends Component {
     e.preventDefault();
     const { push } = this.props;
     const auth = new Auth();
-    return auth.login(this.state.email, this.state.password, push);
+    return auth.login(this.state.email, this.state.password, push, this.loginFailed, this.loginSuccess);
   };
+
+  loginFailed = () => this.setState({ error: true });
+
+  loginSuccess = () => this.setState({ error: false });
 
   render() {
     return (
