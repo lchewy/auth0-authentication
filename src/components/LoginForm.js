@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Box, Flex } from "grid-styled";
+import { Box } from "grid-styled";
 import Auth from "../utils/Auth";
 
 class LoginForm extends Component {
@@ -33,6 +33,7 @@ class LoginForm extends Component {
     return (
       <LoginFormContainer marginLeft>
         <InnerFormContainer>
+          {this.state.error && <div>email or password don't match</div>}
           <FormStyle onSubmit={e => this.handleSubmit(e)}>
             <label>Email</label>
             <TextInput
